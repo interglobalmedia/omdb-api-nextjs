@@ -25,13 +25,16 @@ export default function Search() {
     }
 
     return (
-        <div className="wrapper">
-            <h1 className="movie-data">Search Movies</h1>
-            <form id="data" action="/results" method="GET">
-                <input type="text" placeholder="Search" name="search" autoFocus required />
-                <button type="submit" name="data-submit">Submit</button>
-            </form>
+        <div className="site-content-wrapper">
+            <div className="wrapper">
+                <main className="index-main">
+                    <h1 className="movie-data">Search Movies</h1>
+                    <form id="data" action="/results" method="GET">
+                        <input type="text" placeholder="Search" name="search" autoFocus required />
+                        <button type="submit" name="data-submit">Submit</button>
+                    </form>
+                </main>
+            </div>
         </div>
-
     )
 }

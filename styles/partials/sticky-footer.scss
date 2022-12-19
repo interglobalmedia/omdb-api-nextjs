@@ -1,31 +1,20 @@
-#credits {
+ .index-main {
+    overflow-y: hidden;
+ }
+
+ .site-footer {
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 0.5rem;
 }
 
-// Sticky Footer Styling
-:root {
-    --space: 1.5em 0;
-    --space: 2em 0;
-}
-
-.Site {
+/* Sticky Footer Styling */
+#__next, .site {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 95vh;
 }
 
-.Site-content {
-    flex: 1 0 auto;
-    padding: var(--space) var(--space) 0;
+.site-content {
+    flex: 1;
     width: 100%;
-}
-
-.Site-content:after {
-    content: "\00a0";
-    display: block;
-    margin-top: var(--space);
-    height: 0;
-    visibility: hidden;
 }
