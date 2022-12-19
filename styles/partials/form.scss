@@ -1,0 +1,12 @@
+#data, #results {
+    display: flex;
+    justify-content: center;
+
+    & input {
+        margin-right: 0.5rem;
+    }
+
+    & button {
+        margin-top: 1.25rem;
+    }
+}

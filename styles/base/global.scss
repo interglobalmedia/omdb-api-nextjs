@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $pastel-green;
+    font-family: Andika, sans-serif;
+    letter-spacing: 0.09em;
+}
+
+a,
+a:active,
+a.hover {
+    margin: 1.5rem auto;
+    font-size: 1.3rem;
+    color: $light-pink;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+li {
+    margin: 0.5rem;
+}
