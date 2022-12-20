@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Error from './_error'
 
-export default function Search() {
+export default function HomePage() {
     const router = useRouter()
     let { search, api_key } = router.query
     const API_KEY = process.env.NEXT_PUBLIC_API_KEY
