@@ -3,6 +3,7 @@ import MovieList from '../components/movie-list'
 import { NextSeo } from 'next-seo'
 import GoTop from '../components/buttons/go-top'
 import ScrollStep from '../components/buttons/scroll-step'
+import SubmitButton from '../components/buttons/button-submit'
 
 export default function ResultsPage({ search, totalPages, title, message, query, totalItems, page }) {
 
@@ -28,7 +29,7 @@ export default function ResultsPage({ search, totalPages, title, message, query,
                 <form id="results" action="/results" method="GET">
                     <input type="text" placeholder="Search Again" name="search" autoFocus required />
                     <input type="number" name="page" placeholder="Enter Page" required />
-                    <button type="submit" name="results-submit">Submit</button>
+                    <SubmitButton />
                 </form>
                 <MovieList search={search} />
             </div>
