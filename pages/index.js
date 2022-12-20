@@ -1,11 +1,13 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
+import SubmitButton from '../components/buttons/button-submit'
 
 export default function HomePage() {
     const router = useRouter()
     let { search, api_key = process.env.NEXT_PUBLIC_API_KEY } = router.query
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     async function fetchMovies() {
         const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=${api_key}`)
         const data = await response.json()
@@ -17,7 +19,7 @@ export default function HomePage() {
         } else {
             return
         }
-    }, [search, api_key])
+    }, [search, api_key, fetchMovies])
 
     return (
         <>
@@ -32,7 +34,7 @@ export default function HomePage() {
                         <h1 className="movie-data">Search Movies</h1>
                         <form id="data" action="/results" method="GET">
                             <input type="text" placeholder="Search" name="search" autoFocus required />
-                            <button type="submit" name="data-submit">Submit</button>
+                            <SubmitButton />
                         </form>
                     </main>
                 </div>
