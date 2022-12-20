@@ -13,7 +13,7 @@ export default function ResultsPage({ search, totalPages, title, message, query,
                 description="An OMDB API Movie Search App built with Next.js, Server Side Rendering, Client Side queries, the fetch API, customized Error page, Sass, linters, dotenv, and more."
                 title="OMDB API Movie Search App Search Results"
             />
-            <div class="buttons-container">
+            <div className="buttons-container">
                 <ScrollStep />
                 <GoTop />
             </div>

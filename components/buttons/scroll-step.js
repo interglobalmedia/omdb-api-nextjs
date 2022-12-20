@@ -5,7 +5,7 @@ export default function ScrollStep() {
     }
 
     return (
-        <button class="scroll bottom icon icon-fill" onClick={handleStepButton}><span class="material-icons">
+        <button className="scroll bottom icon icon-fill" onClick={handleStepButton}><span className="material-icons">
             keyboard_arrow_down
         </span></button>
     )

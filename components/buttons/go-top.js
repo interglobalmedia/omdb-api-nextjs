@@ -15,7 +15,7 @@ export default function GoTop() {
         window.addEventListener('scroll', handleVisibleButton)
     }, [])
     return (
-        <button class="scroll top icon icon-fill" onClick={handleScrollUp}><span class="material-icons">
+        <button className="scroll top icon icon-fill" onClick={handleScrollUp}><span className="material-icons">
             keyboard_arrow_up
         </span></button>
     )
