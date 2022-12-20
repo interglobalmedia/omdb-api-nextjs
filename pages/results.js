@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import MovieList from '../components/movie-list'
 import { NextSeo } from 'next-seo'
