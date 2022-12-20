@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Error({statusCode}) {
+function Error({ statusCode }) {
     return (
         <div className="error-container">
             {statusCode && <h1>Error: {statusCode}</h1>}
@@ -15,4 +15,6 @@ Error.getInitialProps = ({ res, err }) => {
     return {
         statusCode
     }
-  }
+}
+
+export default Error
