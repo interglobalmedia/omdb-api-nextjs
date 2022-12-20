@@ -1,7 +1,8 @@
 export default function MovieList(props) {
-    const {search} = props
+    const { search } = props
+
     return (
-        <>  
+        <>
             {search.map((movie, index) => (
                 <ul className="container" key={index}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -11,7 +12,7 @@ export default function MovieList(props) {
                     <li>Type: {movie.Type}</li>
                     <li>Movie ID: {movie.imdbID}</li>
                 </ul>
-        ))}
+            ))}
         </>
     )
 }
