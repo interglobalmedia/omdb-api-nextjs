@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import MovieList from '../components/movie-list'
+import { NextSeo } from 'next-seo'
 
-function ResultsPage({ search, totalPages, title, message, query, totalItems, page }) {
+export default function ResultsPage({ search, totalPages, title, message, query, totalItems, page }) {
+
     return (
+        <>
+            <NextSeo
+                description="An OMDB API Movie Search App built with Next.js, Server Side Rendering, Client Side queries, the fetch API, customized Error page, Sass, linters, dotenv, and more."
+                title="OMDB API Movie Search App Search Results"
+            />
+
         <div className="wrapper">
             <h1 className="search-results">{message}</h1>
             <Link href="/">Search Again</Link>
@@ -18,7 +26,8 @@ function ResultsPage({ search, totalPages, title, message, query, totalItems, pa
                 <button type="submit" name="results-submit">Submit</button>
             </form>
             <MovieList search={search} />
-        </div>
+            </div>
+            </>
     )
 }
 
@@ -33,8 +42,6 @@ export async function getServerSideProps(context) {
     const data = await response.json()
     totalItems = data['totalResults']
     const search = data["Search"]
-    const movie = data["Title"]
-    console.log(movie, 'movie')
     console.log(search, 'search')
     console.log(totalItems)
     return {
@@ -49,4 +56,3 @@ export async function getServerSideProps(context) {
         }
     }
 }
-export default ResultsPage
