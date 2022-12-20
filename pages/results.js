@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import MovieList from '../components/movie-list'
 
-function HomePage({ search, totalPages, title, message, query, totalItems, page }) {
+function ResultsPage({ search, totalPages, title, message, query, totalItems, page }) {
     return (
         <div className="wrapper">
             <h1 className="search-results">{message}</h1>
@@ -49,4 +49,4 @@ export async function getServerSideProps(context) {
         }
     }
 }
-export default HomePage
+export default ResultsPage
