@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Error from './_error'
 
 export default function Search() {
     const router = useRouter()
@@ -8,11 +9,20 @@ export default function Search() {
     api_key = API_KEY
 
     let fetchMovies = async () => {
-        const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=${api_key}`)
-        const data = await response.json()
-        console.log(data)
+        try {
+            const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=${api_key}`)
+            const data = await response.json()
+            console.log(data)
+            if (response.ok) {
+                return data
+            } else {
+                return <Error />
+            }
+        } catch (error) {
+            return <Error />
+        }
     }
-    
+
     useEffect(() => {
         if (search) {
             fetchMovies(search)
