@@ -1,5 +1,5 @@
 import '../styles/globals.scss'
-import { Andika } from '@next/font/google'
+import { Andika } from 'next/font/google'
 
 const andika = Andika({
   weight: '400',
