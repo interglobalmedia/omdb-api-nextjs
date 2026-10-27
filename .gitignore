@@ -31,3 +31,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+output.txt
+git-commit-messages.md
+Claude outputs/
+
+notes.md
