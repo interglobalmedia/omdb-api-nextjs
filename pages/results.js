@@ -43,8 +43,10 @@ export async function getServerSideProps(context) {
     console.log(query)
     const itemsPerPage = 10
     let totalItems
-    const api_key = process.env.NEXT_PUBLIC_API_KEY
-    const response = await fetch(`https://www.omdbapi.com/?s=${query}&page=${page}&apikey=${api_key}`)
+    const api_key = process.env.OMDB_API_KEY
+    const response = await fetch(
+	`https://www.omdbapi.com/?s=${encodeURIComponent(query)}&page=${encodeURIComponent(page)}&apikey=${api_key}`,
+)
     const data = await response.json()
     totalItems = data['totalResults']
     const search = data["Search"]

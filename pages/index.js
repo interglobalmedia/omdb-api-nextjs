@@ -1,26 +1,7 @@
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import SubmitButton from '../components/buttons/button-submit'
 
 export default function HomePage() {
-    const router = useRouter()
-    let { search, api_key = process.env.NEXT_PUBLIC_API_KEY } = router.query
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    async function fetchMovies() {
-        const response = await fetch(`https://www.omdbapi.com/?s=${search}&apikey=${api_key}`)
-        const data = await response.json()
-        console.log(data)
-    }
-    useEffect(() => {
-        if (search) {
-            fetchMovies(search)
-        } else {
-            return
-        }
-    }, [search, api_key, fetchMovies])
-
     return (
         <>
             <NextSeo
