@@ -15,8 +15,6 @@
     "analyze": "next analyze"
   },
   "dependencies": {
-    "eslint": "8.30.0",
-    "eslint-config-next": "13.0.7",
     "next": "^16.4.3",
     "next-seo": "^5.15.0",
     "react": "^19.3.1",
@@ -24,9 +22,9 @@
     "sass": "^1.57.0"
   },
   "devDependencies": {
+    "eslint": "^10.13.0",
+    "eslint-config-next": "^16.4.3",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "htmlhint": "^1.1.4",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
