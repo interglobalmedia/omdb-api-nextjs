@@ -5,5 +5,11 @@ import nextVitals from 'eslint-config-next/core-web-vitals'
 export default defineConfig([
 	js.configs.recommended,
 	...nextVitals,
-	globalIgnores(['.next/**', 'out/**', 'build/**', 'coverage/**', 'next-env.d.ts']),
+	globalIgnores([
+		'.next/**',
+		'out/**',
+		'build/**',
+		'coverage/**',
+		'next-env.d.ts',
+	]),
 ])
