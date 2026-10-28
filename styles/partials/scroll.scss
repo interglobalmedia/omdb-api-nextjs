@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 .buttons-container {
 	margin-top: 30px;
 	width: 100%;
@@ -19,8 +21,8 @@
 	z-index: 1000;
 	background: $pastel-green;
 	cursor: pointer;
-	margin-left: $icon-size/5;
-	margin-right: $icon-size/5;
+	margin-left: math.div($icon-size, 5);
+	margin-right: math.div($icon-size, 5);
 	border-radius: $icon-size * $border-radius;
 	overflow: hidden;
 
@@ -41,7 +43,7 @@
 		right: 0;
 
 		&.material-icons {
-			margin-top: $icon-size/20;
+			margin-top: math.div($icon-size, 20);
 		}
 	}
 
@@ -64,7 +66,7 @@ button.scroll.top {
 	position: relative;
 	color: $french-yellow;
 	font-size: $icon-size;
-	margin-top: $icon-size/20;
+	margin-top: math.div($icon-size, 20);
 	transition: all 0.25s ease;
 }
 
