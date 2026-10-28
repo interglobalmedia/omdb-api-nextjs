@@ -5,8 +5,8 @@ export default function MovieList(props) {
 		<>
 			{search.map((movie, index) => (
 				<ul className="container" key={index}>
-					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<li>
+						{/* eslint-disable-next-line @next/next/no-img-element */}
 						<img src={movie.Poster} alt="movie" />
 					</li>
 					<li>Movie: {movie.Title}</li>
