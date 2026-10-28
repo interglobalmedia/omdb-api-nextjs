@@ -9,10 +9,11 @@
     "lint": "eslint .",
     "stylelint": "stylelint styles/**/*.scss",
     "stylelint:fix": "stylelint --fix **/*.scss",
-    "prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)\"",
-    "validate": "npm run lint && npm run stylelint && npm run prettier",
+    "validate": "npm run lint && npm run stylelint && npm run format:check",
     "prepare": "husky install",
-    "analyze": "next analyze"
+    "analyze": "next analyze",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "next": "^16.4.3",
