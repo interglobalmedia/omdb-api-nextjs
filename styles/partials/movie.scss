@@ -1,10 +1,12 @@
+@use '../base/variables' as v;
+
 .wrapper {
 	margin: 3rem auto;
 	width: 100%;
 	text-align: center;
 
 	.search-results {
-		color: $light-mint;
+		color: v.$light-mint;
 		margin-bottom: 0.75rem;
 	}
 
@@ -44,7 +46,7 @@
 		max-width: 600px;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
-		background: $light-sky-blue;
+		background: v.$light-sky-blue;
 		border: 2px solid black;
 
 		li {
@@ -53,7 +55,7 @@
 			text-align: center;
 			word-break: break-all;
 			font-size: 1.2rem;
-			background: $light-sky-blue;
+			background: v.$light-sky-blue;
 
 			img {
 				width: 100%;

@@ -1,29 +1,30 @@
 @use 'sass:math';
+@use '../base/variables' as v;
 
 .buttons-container {
 	margin-top: 30px;
 	width: 100%;
-	height: $icon-size;
+	height: v.$icon-size;
 }
 
 /*  scroll */
 .scroll {
 	position: fixed;
 	right: 0;
-	width: $icon-size;
-	height: $icon-size;
+	width: v.$icon-size;
+	height: v.$icon-size;
 	display: block;
 	text-align: center;
-	line-height: $icon-size;
-	color: $french-yellow;
+	line-height: v.$icon-size;
+	color: v.$french-yellow;
 	font-size: 3.5rem;
 	text-decoration: none;
 	z-index: 1000;
-	background: $pastel-green;
+	background: v.$pastel-green;
 	cursor: pointer;
-	margin-left: math.div($icon-size, 5);
-	margin-right: math.div($icon-size, 5);
-	border-radius: $icon-size * $border-radius;
+	margin-left: math.div(v.$icon-size, 5);
+	margin-right: math.div(v.$icon-size, 5);
+	border-radius: v.$icon-size * v.$border-radius;
 	overflow: hidden;
 
 	&::before,
@@ -35,7 +36,7 @@
 		height: 100%;
 		width: 100%;
 		transition: all 0.25s ease;
-		border-radius: $icon-size * $border-radius;
+		border-radius: v.$icon-size * v.$border-radius;
 	}
 
 	&.bottom {
@@ -43,7 +44,7 @@
 		right: 0;
 
 		&.material-icons {
-			margin-top: math.div($icon-size, 20);
+			margin-top: math.div(v.$icon-size, 20);
 		}
 	}
 
@@ -64,19 +65,19 @@ button.scroll.top {
 .material-icons {
 	// font-size: 4rem;
 	position: relative;
-	color: $french-yellow;
-	font-size: $icon-size;
-	margin-top: math.div($icon-size, 20);
+	color: v.$french-yellow;
+	font-size: v.$icon-size;
+	margin-top: math.div(v.$icon-size, 20);
 	transition: all 0.25s ease;
 }
 
 .icon-fill {
 	&::before {
 		transition-duration: 0.5s;
-		box-shadow: inset 0 0 0 1px $icon-background;
+		box-shadow: inset 0 0 0 1px v.$icon-background;
 	}
 
 	&:hover::before {
-		box-shadow: inset 0 0 0 $icon-size $icon-background;
+		box-shadow: inset 0 0 0 v.$icon-size v.$icon-background;
 	}
 }
