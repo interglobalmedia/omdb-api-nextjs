@@ -10,7 +10,7 @@
 		"stylelint": "stylelint \"styles/**/*.scss\"",
 		"stylelint:fix": "stylelint --fix \"styles/**/*.scss\"",
 		"validate": "npm run lint && npm run stylelint && npm run format:check",
-		"prepare": "husky install",
+		"prepare": "husky",
 		"analyze": "next analyze",
 		"format": "prettier --write .",
 		"format:check": "prettier --check ."
@@ -26,7 +26,7 @@
 		"eslint": "^10.13.0",
 		"eslint-config-next": "^16.4.3",
 		"eslint-config-prettier": "^10.1.8",
-		"husky": "^8.0.2",
+		"husky": "^9.1.7",
 		"prettier": "^3.9.10",
 		"sass": "^1.107.0",
 		"stylelint": "^17.16.0",
