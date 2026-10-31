@@ -1,28 +1,30 @@
+@use 'variables' as v;
+
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 body {
-    background: $pastel-green;
-    font-family: Andika, sans-serif;
-    letter-spacing: 0.09em;
+	background: v.$pastel-green;
+	font-family: Andika, sans-serif;
+	letter-spacing: 0.09em;
 }
 
 a,
 a:active,
 a.hover {
-    margin: 1.5rem auto;
-    font-size: 1.3rem;
-    color: $light-pink;
+	margin: 1.5rem auto;
+	font-size: 1.3rem;
+	color: v.$light-pink;
 }
 
 ul,
 li {
-    list-style: none;
+	list-style: none;
 }
 
 li {
-    margin: 0.5rem;
+	margin: 0.5rem;
 }
