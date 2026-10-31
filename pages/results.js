@@ -8,11 +8,8 @@ import SubmitButton from '../components/buttons/button-submit'
 export default function ResultsPage({
 	search,
 	totalPages,
-	title,
 	message,
-	query,
 	totalItems,
-	page,
 }) {
 	return (
 		<>
@@ -79,11 +76,8 @@ export async function getServerSideProps(context) {
 		props: {
 			search,
 			totalPages: Math.ceil(totalItems / itemsPerPage) || ``,
-			title: `Movie Search Results`,
 			message: `Movie Search Results`,
-			query,
 			totalItems,
-			page,
 		},
 	}
 }
