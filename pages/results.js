@@ -28,11 +28,9 @@ export default function ResultsPage({
 				{search && (
 					<>
 						<p className="total-results">
-							Total Results: {totalItems || ``}
+							Total Results: {totalItems}
 						</p>
-						<p className="total-pages">
-							Total Pages: {totalPages || ``}
-						</p>
+						<p className="total-pages">Total Pages: {totalPages}</p>
 					</>
 				)}
 				<form id="results" action="/results" method="GET">
@@ -63,16 +61,36 @@ export async function getServerSideProps(context) {
 	const itemsPerPage = 10
 	let totalItems
 	const api_key = process.env.OMDB_API_KEY
+	if (!query) {
+		return {
+			props: {
+				search: [],
+				totalItems: 0,
+				totalPages: 0,
+				message: 'Enter a movie title to search',
+			},
+		}
+	}
 	const response = await fetch(
 		`https://www.omdbapi.com/?s=${encodeURIComponent(query)}&page=${encodeURIComponent(page)}&apikey=${api_key}`,
 	)
 	const data = await response.json()
-	totalItems = data['totalResults']
+	totalItems = Number(data['totalResults'])
 	const search = data['Search']
+	if (data.Response === 'False') {
+		return {
+			props: {
+				search: [],
+				totalPages: 0,
+				message: data.Error,
+				totalItems: 0,
+			},
+		}
+	}
 	return {
 		props: {
 			search,
-			totalPages: Math.ceil(totalItems / itemsPerPage) || ``,
+			totalPages: Math.ceil(totalItems / itemsPerPage),
 			message: `Movie Search Results`,
 			totalItems,
 		},
