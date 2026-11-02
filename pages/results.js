@@ -71,28 +71,40 @@ export async function getServerSideProps(context) {
 			},
 		}
 	}
-	const response = await fetch(
-		`https://www.omdbapi.com/?s=${encodeURIComponent(query)}&page=${encodeURIComponent(page)}&apikey=${api_key}`,
-	)
-	const data = await response.json()
-	totalItems = Number(data['totalResults'])
-	const search = data['Search']
-	if (data.Response === 'False') {
+	try {
+		const response = await fetch(
+			`https://www.omdbapi.com/?s=${encodeURIComponent(query)}&page=${encodeURIComponent(page)}&apikey=${api_key}`,
+		)
+		const data = await response.json()
+		totalItems = Number(data['totalResults'])
+		const search = data['Search']
+		if (data.Response === 'False') {
+			return {
+				props: {
+					search: [],
+					totalPages: 0,
+					message: data.Error,
+					totalItems: 0,
+				},
+			}
+		}
+		return {
+			props: {
+				search,
+				totalPages: Math.ceil(totalItems / itemsPerPage),
+				message: `Movie Search Results`,
+				totalItems,
+			},
+		}
+	} catch (error) {
+		console.error('Error fetching from OMDB API:', error.message)
 		return {
 			props: {
 				search: [],
 				totalPages: 0,
-				message: data.Error,
+				message: `An internal error has occurred`,
 				totalItems: 0,
 			},
 		}
-	}
-	return {
-		props: {
-			search,
-			totalPages: Math.ceil(totalItems / itemsPerPage),
-			message: `Movie Search Results`,
-			totalItems,
-		},
 	}
 }
