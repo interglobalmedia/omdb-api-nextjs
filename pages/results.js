@@ -60,7 +60,6 @@ export default function ResultsPage({
 export async function getServerSideProps(context) {
 	let query = context.query.search
 	let page = context.query.page || 1
-	console.log(query)
 	const itemsPerPage = 10
 	let totalItems
 	const api_key = process.env.OMDB_API_KEY
@@ -70,8 +69,6 @@ export async function getServerSideProps(context) {
 	const data = await response.json()
 	totalItems = data['totalResults']
 	const search = data['Search']
-	console.log(search, 'search')
-	console.log(totalItems)
 	return {
 		props: {
 			search,
