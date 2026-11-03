@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import MovieList from '../components/movie-list'
-import { NextSeo } from 'next-seo'
+import Head from 'next/head'
 import GoTop from '../components/buttons/go-top'
 import ScrollStep from '../components/buttons/scroll-step'
 import SubmitButton from '../components/buttons/button-submit'
@@ -13,15 +13,18 @@ export default function ResultsPage({
 }) {
 	return (
 		<>
-			<NextSeo
-				description="An OMDB API Movie Search App built with Next.js, Server Side Rendering, Client Side queries, the fetch API, customized Error page, Sass, linters, dotenv, and more."
-				title="OMDB API Movie Search App Search Results"
-			/>
+			<Head>
+				<title>OMDB API Movie Search App Search Results</title>
+				<meta
+					name="description"
+					content="An OMDB API Movie Search App built with Next.js, Server Side Rendering, the fetch API, customized Error page, Sass, linters, and more."
+				/>
+				<meta name="author" content="Maria D. Campbell" />
+			</Head>
 			<div className="buttons-container">
 				<ScrollStep />
 				<GoTop />
 			</div>
-
 			<div className="wrapper">
 				<h1 className="search-results">{message}</h1>
 				<Link href="/">Search Again</Link>
