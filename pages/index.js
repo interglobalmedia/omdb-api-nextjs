@@ -1,14 +1,17 @@
-import { NextSeo } from 'next-seo'
+import Head from 'next/head'
 import SubmitButton from '../components/buttons/button-submit'
 
 export default function HomePage() {
 	return (
 		<>
-			<NextSeo
-				description="An OMDB API Movie Search App built with Next.js, Server Side Rendering, Client Side queries, the fetch API, customized Error page, Sass, linters, dotenv, and more."
-				author="Maria D. Campbell"
-				title="OMDB API Movie Search App Search"
-			/>
+			<Head>
+				<title>OMDB API Movie Search App Search</title>
+				<meta
+					name="description"
+					content="An OMDB API Movie Search App built with Next.js, Server Side Rendering, the fetch API, customized Error page, Sass, linters, and more."
+				/>
+				<meta name="author" content="Maria D. Campbell" />
+			</Head>
 			<div className="wrapper">
 				<div className="index-main">
 					<h1 className="movie-data">Search Movies</h1>
