@@ -1,4 +1,5 @@
 @use 'base/variables';
+@use 'base/icons';
 @use 'base/global';
 @use 'partials/scroll';
 @use 'partials/search';
@@ -7,4 +8,3 @@
 @use 'partials/form';
 @use 'partials/sticky-footer';
 @use 'partials/error';
-@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
