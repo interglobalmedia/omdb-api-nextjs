@@ -11,7 +11,7 @@ export default function HomePage() {
 			/>
 			<div className="site-content-wrapper">
 				<div className="wrapper">
-					<main className="index-main">
+					<div className="index-main">
 						<h1 className="movie-data">Search Movies</h1>
 						<form id="data" action="/results" method="GET">
 							<input
@@ -23,7 +23,7 @@ export default function HomePage() {
 							/>
 							<SubmitButton />
 						</form>
-					</main>
+					</div>
 				</div>
 			</div>
 		</>
