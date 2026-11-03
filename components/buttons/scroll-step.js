@@ -1,6 +1,6 @@
 export default function ScrollStep() {
 	const handleStepButton = () => {
-		window.scroll(0, window.pageYOffset + 100)
+		window.scroll(0, window.scrollY + 100)
 	}
 
 	return (
