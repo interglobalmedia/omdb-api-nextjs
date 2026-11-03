@@ -9,21 +9,19 @@ export default function HomePage() {
 				author="Maria D. Campbell"
 				title="OMDB API Movie Search App Search"
 			/>
-			<div className="site-content-wrapper">
-				<div className="wrapper">
-					<div className="index-main">
-						<h1 className="movie-data">Search Movies</h1>
-						<form id="data" action="/results" method="GET">
-							<input
-								type="text"
-								placeholder="Search"
-								name="search"
-								autoFocus
-								required
-							/>
-							<SubmitButton />
-						</form>
-					</div>
+			<div className="wrapper">
+				<div className="index-main">
+					<h1 className="movie-data">Search Movies</h1>
+					<form id="data" action="/results" method="GET">
+						<input
+							type="text"
+							placeholder="Search"
+							name="search"
+							autoFocus
+							required
+						/>
+						<SubmitButton />
+					</form>
 				</div>
 			</div>
 		</>
