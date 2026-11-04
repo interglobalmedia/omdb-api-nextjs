@@ -60,8 +60,11 @@ export default function ResultsPage({
 
 export async function getServerSideProps(context) {
 	let query = context.query.search
-	let page = context.query.page || 1
 	const itemsPerPage = 10
+	const MAX_PAGE = 100
+	const requestedPage = Number(context.query.page)
+	const isValidPage = Number.isInteger(requestedPage) && requestedPage >= 1
+	const page = isValidPage ? Math.min(requestedPage, MAX_PAGE) : 1
 	let totalItems
 	const api_key = process.env.OMDB_API_KEY
 	if (!query) {
