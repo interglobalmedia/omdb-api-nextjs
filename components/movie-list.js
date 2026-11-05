@@ -1,13 +1,14 @@
+import MoviePoster from './movie-poster'
+
 export default function MovieList(props) {
 	const { search } = props
 
 	return (
 		<>
-			{search.map((movie, index) => (
-				<ul className="container" key={index}>
+			{search.map((movie) => (
+				<ul className="container" key={movie.imdbID}>
 					<li>
-						{/* eslint-disable-next-line @next/next/no-img-element */}
-						<img src={movie.Poster} alt="movie" />
+						<MoviePoster src={movie.Poster} title={movie.Title} />
 					</li>
 					<li>Movie: {movie.Title}</li>
 					<li>Year: {movie.Year}</li>

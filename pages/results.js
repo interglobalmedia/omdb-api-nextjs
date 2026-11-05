@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import MovieList from '../components/movie-list'
-import { NextSeo } from 'next-seo'
+import Head from 'next/head'
 import GoTop from '../components/buttons/go-top'
 import ScrollStep from '../components/buttons/scroll-step'
 import SubmitButton from '../components/buttons/button-submit'
@@ -13,26 +13,27 @@ export default function ResultsPage({
 }) {
 	return (
 		<>
-			<NextSeo
-				description="An OMDB API Movie Search App built with Next.js, Server Side Rendering, Client Side queries, the fetch API, customized Error page, Sass, linters, dotenv, and more."
-				title="OMDB API Movie Search App Search Results"
-			/>
+			<Head>
+				<title>OMDB API Movie Search App Search Results</title>
+				<meta
+					name="description"
+					content="An OMDB API Movie Search App built with Next.js, Server Side Rendering, the fetch API, customized Error page, Sass, linters, and more."
+				/>
+				<meta name="author" content="Maria D. Campbell" />
+			</Head>
 			<div className="buttons-container">
 				<ScrollStep />
 				<GoTop />
 			</div>
-
 			<div className="wrapper">
 				<h1 className="search-results">{message}</h1>
 				<Link href="/">Search Again</Link>
 				{search && (
 					<>
 						<p className="total-results">
-							Total Results: {totalItems || ``}
+							Total Results: {totalItems}
 						</p>
-						<p className="total-pages">
-							Total Pages: {totalPages || ``}
-						</p>
+						<p className="total-pages">Total Pages: {totalPages}</p>
 					</>
 				)}
 				<form id="results" action="/results" method="GET">
@@ -59,25 +60,57 @@ export default function ResultsPage({
 
 export async function getServerSideProps(context) {
 	let query = context.query.search
-	let page = context.query.page || 1
-	console.log(query)
 	const itemsPerPage = 10
+	const MAX_PAGE = 100
+	const requestedPage = Number(context.query.page)
+	const isValidPage = Number.isInteger(requestedPage) && requestedPage >= 1
+	const page = isValidPage ? Math.min(requestedPage, MAX_PAGE) : 1
 	let totalItems
 	const api_key = process.env.OMDB_API_KEY
-	const response = await fetch(
-		`https://www.omdbapi.com/?s=${encodeURIComponent(query)}&page=${encodeURIComponent(page)}&apikey=${api_key}`,
-	)
-	const data = await response.json()
-	totalItems = data['totalResults']
-	const search = data['Search']
-	console.log(search, 'search')
-	console.log(totalItems)
-	return {
-		props: {
-			search,
-			totalPages: Math.ceil(totalItems / itemsPerPage) || ``,
-			message: `Movie Search Results`,
-			totalItems,
-		},
+	if (!query) {
+		return {
+			props: {
+				search: [],
+				totalItems: 0,
+				totalPages: 0,
+				message: 'Enter a movie title to search',
+			},
+		}
+	}
+	try {
+		const response = await fetch(
+			`https://www.omdbapi.com/?s=${encodeURIComponent(query)}&page=${encodeURIComponent(page)}&apikey=${api_key}`,
+		)
+		const data = await response.json()
+		totalItems = Number(data['totalResults'])
+		const search = data['Search']
+		if (data.Response === 'False') {
+			return {
+				props: {
+					search: [],
+					totalPages: 0,
+					message: data.Error,
+					totalItems: 0,
+				},
+			}
+		}
+		return {
+			props: {
+				search,
+				totalPages: Math.ceil(totalItems / itemsPerPage),
+				message: `Movie Search Results`,
+				totalItems,
+			},
+		}
+	} catch (error) {
+		console.error('Error fetching from OMDB API:', error.message)
+		return {
+			props: {
+				search: [],
+				totalPages: 0,
+				message: `An internal error has occurred`,
+				totalItems: 0,
+			},
+		}
 	}
 }
